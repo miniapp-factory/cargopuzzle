@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
 type Cell = "empty" | "box" | "target" | "box-on-target";
@@ -59,7 +59,7 @@ export default function PushBoxes() {
   useEffect(() => {
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [grid]);
+  }, [grid, handleKeyDown]);
 
   const reset = () => setGrid(initialGrid);
 
